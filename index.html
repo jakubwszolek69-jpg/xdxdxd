@@ -389,27 +389,35 @@ function stworzZestaw(){
   const bat = parseFloat(document.getElementById("bateria").value);
   const lad = parseInt(document.getElementById("ladowarka").value);
 
-  const t=currentLang==="de"?textDE:(currentLang==="en"?textEN:textPL);
+  const t = currentLang === "de" ? textDE : (currentLang === "en" ? textEN : textPL);
 
-  const cenaPV=1200;
-  const cenaBat=500;
-  const cenaLad=1000;
+  // --- WALUTA WG JĘZYKA ---
+  const waluta = currentLang === "pl" ? "zł" : "€";
 
-  const koszt = pv*cenaPV + bat*cenaBat + (lad?cenaLad:0);
+  // CENNIK (NIE ZMIENIAMY, TYLKO WALUTA SIĘ PODMIEŃ)
+  const cenaPV = currentLang === "pl" ? 5200 : 1200; // przykład: inne ceny w PLN
+  const cenaBat = currentLang === "pl" ? 2300 : 500;
+  const cenaLad = currentLang === "pl" ? 4200 : 1000;
+
+  const kosztPV = pv * cenaPV;
+  const kosztBat = bat * cenaBat;
+  const kosztLad = lad ? cenaLad : 0;
+  const koszt = kosztPV + kosztBat + kosztLad;
 
   const opis =
-`${t.rPV}: ${pv} kW (${(pv*cenaPV).toLocaleString()} €)
-${t.rBAT}: ${bat} kWh (${(bat*cenaBat).toLocaleString()} €)
-${t.rEV}: ${lad?t.rYes+" ("+cenaLad.toLocaleString()+" €)":t.rNo}
-${t.rCost}: ${koszt.toLocaleString()} €`;
+`${t.rPV}: ${pv} kW (${kosztPV.toLocaleString()} ${waluta})
+${t.rBAT}: ${bat} kWh (${kosztBat.toLocaleString()} ${waluta})
+${t.rEV}: ${lad ? t.rYes+" ("+cenaLad.toLocaleString()+" "+waluta+")" : t.rNo}
+${t.rCost}: ${koszt.toLocaleString()} ${waluta}`;
 
-  const wynik=document.getElementById("wynikZestawu");
-  wynik.style.display="block";
-  wynik.innerHTML=opis.replace(/\n/g,"<br>");
-  wynik.dataset.opis=opis;
+  const wynik = document.getElementById("wynikZestawu");
+  wynik.style.display = "block";
+  wynik.innerHTML = opis.replace(/\n/g, "<br>");
+  wynik.dataset.opis = opis;
 
-  document.getElementById("zamowZestaw").style.display="inline-block";
+  document.getElementById("zamowZestaw").style.display = "inline-block";
 }
+
 
 
 function przeniesDoForm(){
