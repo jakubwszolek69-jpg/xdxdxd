@@ -1,166 +1,434 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SunPort-JW-SOL | Garaże Blaszane z Instalacją PV Off-Grid</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Poppins", sans-serif;
+      color: #333;
+      background-color: #f4f4f4;
+      scroll-behavior: smooth;
+    }
+
+    .hero {
+      position: relative;
+      height: 100vh;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
+        url('https://cdn.prod.website-files.com/5ebc12985f567c48a37040ab/609d094d47d277c6c6deec44_Bez-nazwy-2.jpg')
+        no-repeat center center/cover;
+    }
+
+    .hero-content {
+      z-index: 2;
+      max-width: 800px;
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: 4rem;
+      margin-bottom: 10px;
+      letter-spacing: 2px;
+    }
+
+    h2 {
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+    }
+
+    .btn {
+      background-color: #ffbb00;
+      color: #000;
+      padding: 12px 30px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background-color: #ffd84d;
+    }
+
+    .section {
+      padding: 80px 20px;
+      background-color: white;
+      text-align: center;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 15px;
+      margin-top: 40px;
+    }
+
+    .gallery img {
+      width: 100%;
+      height: 230px;
+      object-fit: cover;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      transition: transform 0.3s;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+
+    form {
+      max-width: 500px;
+      margin: 0 auto;
+      text-align: left;
+    }
+
+    input, textarea, select {
+      width: 100%;
+      padding: 12px;
+      margin: 8px 0;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+
+    button {
+      background-color: #ffbb00;
+      color: #000;
+      padding: 12px 30px;
+      border: none;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background-color: #ffd84d;
+    }
+
+    .partners {
+      background-color: #fafafa;
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .partners img {
+      max-width: 180px;
+      margin: 20px;
+      opacity: 0.8;
+      transition: 0.3s;
+    }
+
+    .partners img:hover {
+      opacity: 1;
+      transform: scale(1.05);
+    }
+
+    footer {
+      background-color: #111;
+      color: white;
+      text-align: center;
+      padding: 20px 10px;
+      font-size: 0.9rem;
+    }
+
+    .calc {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: #f7f7f7;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+      text-align: left;
+    }
+
+    .calc-result {
+      background-color: #fff3cd;
+      border-left: 4px solid #ffbb00;
+      padding: 15px;
+      margin-top: 15px;
+      border-radius: 6px;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="hero">
+    <div class="hero-content">
+      <h1>SunPort-JW-SOL</h1>
+      <h2>Garaże Blaszane z Instalacją PV Off-Grid</h2>
+      <p>Energia prosto z dachu Twojego garażu — niezależność w najlepszym wydaniu</p>
+      <a href="#oferta" class="btn">Zobacz ofertę</a>
+    </div>
+  </header>
+
+  <section id="oferta" class="section">
+    <h2>Nasza Oferta</h2>
+    <p>Oferujemy solidne garaże zintegrowane z kompletnymi zestawami PV off-grid. 
+    Współpracujemy z <strong>Hortogarage</strong> – oficjalnym partnerem SunPort-JW-SOL.</p>
+
+    <div class="gallery">
+      <img src="https://shift.ca/wp-content/uploads/2019/11/9.94kw-cedar.jpg">
+      <img src="https://belmontsolar.b-cdn.net/wp-content/uploads/Blog-Posts/Garage-Solar-Panels/can-you-put-solar-panels-on-a-garage-roof-3.jpg">
+      <img src="https://www.worldwidesteelbuildings.com/wp-content/uploads/2022/10/01-7-1-1024x539.jpg">
+      <img src="https://www.pretapower.com/wp-content/uploads/2025/08/Commercial-Solar-Install-on-Corrugated-Metal-Warehouse-Roof.jpg">
+      <img src="https://www.photos-public-domain.com/wp-content/uploads/2010/11/solar_panels_on_parking_garage.jpg">
+    </div>
+  </section>
+
+  <section id="kreator" class="section">
+    <h2>Kreator Zestawu Off-Grid</h2>
+    <p>Skonfiguruj swój własny zestaw: wybierz moc instalacji PV, pojemność magazynu energii i opcjonalnie ładowarkę samochodową.</p>
+
+    <div class="calc">
+
+      <label for="pv">Moc instalacji PV (kW):</label>
+      <select id="pv">
+        <option value="3">3 kW</option>
+        <option value="5" selected>5 kW</option>
+        <option value="8">8 kW</option>
+        <option value="10">10 kW</option>
+      </select>
+
+      <label for="bateria">Pojemność magazynu energii (kWh):</label>
+      <select id="bateria">
+        <option value="5">5 kWh</option>
+        <option value="10" selected>10 kWh</option>
+        <option value="15">15 kWh</option>
+        <option value="20">20 kWh</option>
+      </select>
+
+      <label for="ladowarka">Ładowarka samochodowa:</label>
+      <select id="ladowarka">
+        <option value="0">Nie</option>
+        <option value="1">Tak (11 kW)</option>
+      </select>
+
+      <button type="button" id="btnCalc" onclick="stworzZestaw()">Oblicz zestaw</button>
+
+      <div id="wynikZestawu" class="calc-result" style="display:none;"></div>
+
+      <button id="zamowZestaw" type="button" style="display:none; margin-top:15px;" onclick="przeniesDoForm()">Zamów ten zestaw</button>
+    </div>
+  </section>
+
+  <section id="zamow" class="section">
+    <h2>Zamów Garaż z Instalacją PV</h2>
+
+    <form action="https://formspree.io/f/mqawanro" method="POST">
+      <label>Model garażu:</label>
+      <select name="model">
+        <option>Standard 3x5 m (2 kW)</option>
+        <option>Premium 4x6 m (4 kW)</option>
+        <option>Double 6x6 m (5 kW)</option>
+      </select>
+
+      <input type="text" name="name" id="nameField" placeholder="Twoje imię i nazwisko" required>
+      <input type="email" name="email" id="emailField" placeholder="Twój e-mail" required>
+      <textarea id="wiadomosc" name="message" rows="5" placeholder="Dodatkowe informacje..."></textarea>
+
+      <button type="submit" id="submitBtn">Wyślij zapytanie</button>
+    </form>
+  </section>
+
+  <section class="partners">
+    <h2>Nasi Partnerzy</h2>
+    <p>Współpracujemy z najlepszymi w branży</p>
+    <div>
+      <img src="https://hortogarage.de/wp-content/uploads/2023/03/horto-logo.png">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/8/81/Solar_power_icon.png">
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 SunPort-JW-SOL | Kontakt: <em>(uzupełnij dane kontaktowe)</em></p>
+  </footer>
+
+<!-- 🔥 TŁUMACZENIA + KONFIGURATOR W PEŁNI TŁUMACZONY -->
 <script>
+
 const textPL = {
-  heroTitle: "SunPort-JW-SOL",
-  heroSubtitle: "Garaże Blaszane z Instalacją PV Off-Grid",
-  heroDesc: "Energia prosto z dachu Twojego garażu — niezależność w najlepszym wydaniu",
-  ofertaTitle: "Nasza Oferta",
-  ofertaDesc: "Oferujemy solidne garaże zintegrowane z kompletnymi zestawami PV off-grid. Współpracujemy z Hortogarage – oficjalnym partnerem SunPort-JW-SOL.",
-  zamowTitle: "Zamów Garaż z Instalacją PV",
-  kreatorTitle: "Kreator Zestawu Off-Grid",
-  calcDesc: "Skonfiguruj swój własny zestaw: wybierz moc instalacji PV, pojemność magazynu energii i opcjonalnie ładowarkę samochodową.",
+  heroTitle:"SunPort-JW-SOL",
+  heroSubtitle:"Garaże Blaszane z Instalacją PV Off-Grid",
+  heroDesc:"Energia prosto z dachu Twojego garażu — niezależność w najlepszym wydaniu",
+  ofertaTitle:"Nasza Oferta",
+  ofertaDesc:"Oferujemy solidne garaże zintegrowane z kompletnymi zestawami PV off-grid. Współpracujemy z Hortogarage – oficjalnym partnerem SunPort-JW-SOL.",
+  zamowTitle:"Zamów Garaż z Instalacją PV",
+  kreatorTitle:"Kreator Zestawu Off-Grid",
+  calcDesc:"Skonfiguruj swój własny zestaw: wybierz moc instalacji PV, pojemność magazynu energii i opcjonalnie ładowarkę samochodową.",
 
-  // konfigurator
-  pvLabel: "Moc instalacji PV (kW):",
-  batLabel: "Pojemność magazynu energii (kWh):",
-  chargLabel: "Ładowarka samochodowa:",
-  chargNo: "Nie",
-  chargYes: "Tak (11 kW)",
-  calcBtn: "Oblicz zestaw",
-  orderBtn: "Zamów ten zestaw",
+  pvLabel:"Moc instalacji PV (kW):",
+  batLabel:"Pojemność magazynu energii (kWh):",
+  chargLabel:"Ładowarka samochodowa:",
+  chargNo:"Nie",
+  chargYes:"Tak (11 kW)",
+  calcBtn:"Oblicz zestaw",
+  orderBtn:"Zamów ten zestaw",
 
-  rPV: "🔆 Instalacja PV",
-  rBAT: "🔋 Magazyn energii",
-  rEV: "🚗 Ładowarka EV",
-  rYes: "Tak",
-  rNo: "Nie",
-  rCost: "💰 Szacunkowy koszt zestawu",
+  rPV:"🔆 Instalacja PV",
+  rBAT:"🔋 Magazyn energii",
+  rEV:"🚗 Ładowarka EV",
+  rYes:"Tak",
+  rNo:"Nie",
+  rCost:"💰 Szacunkowy koszt zestawu",
 
-  textareaAdd: "Dodatkowe informacje: "
+  textareaAdd:"Dodatkowe informacje: ",
+  submit:"Wyślij zapytanie",
+  namePH:"Twoje imię i nazwisko",
+  emailPH:"Twój e-mail"
 };
 
 const textDE = {
-  heroTitle: "SunPort-JW-SOL",
-  heroSubtitle: "Blechgaragen mit Off-Grid PV-Anlage",
-  heroDesc: "Energie direkt vom Dach Ihrer Garage – Unabhängigkeit in Bestform",
-  ofertaTitle: "Unser Angebot",
-  ofertaDesc: "Wir bieten solide Garagen mit kompletten Off-Grid-PV-Systemen. Wir arbeiten mit Hortogarage – offizieller Partner von SunPort-JW-SOL zusammen.",
-  zamowTitle: "Garage mit PV-Anlage bestellen",
-  kreatorTitle: "Off-Grid Set-Konfigurator",
-  calcDesc: "Konfigurieren Sie Ihr eigenes Set: Wählen Sie PV-Leistung, Speicherkapazität und optional ein Elektroauto-Ladegerät.",
+  heroTitle:"SunPort-JW-SOL",
+  heroSubtitle:"Blechgaragen mit Off-Grid PV-Anlage",
+  heroDesc:"Energie direkt vom Dach Ihrer Garage – Unabhängigkeit in Bestform",
+  ofertaTitle:"Unser Angebot",
+  ofertaDesc:"Wir bieten solide Garagen mit kompletten Off-Grid-PV-Systemen. Wir arbeiten mit Hortogarage – offizieller Partner von SunPort-JW-SOL.",
+  zamowTitle:"Garage mit PV-Anlage bestellen",
+  kreatorTitle:"Off-Grid Set-Konfigurator",
+  calcDesc:"Konfigurieren Sie Ihr eigenes Set: Wählen Sie PV-Leistung, Speicherkapazität und optional ein Elektroauto-Ladegerät.",
 
-  // konfigurator
-  pvLabel: "PV-Leistung (kW):",
-  batLabel: "Speicherkapazität (kWh):",
-  chargLabel: "Autoladegerät:",
-  chargNo: "Nein",
-  chargYes: "Ja (11 kW)",
-  calcBtn: "Set berechnen",
-  orderBtn: "Dieses Set bestellen",
+  pvLabel:"PV-Leistung (kW):",
+  batLabel:"Speicherkapazität (kWh):",
+  chargLabel:"Autoladegerät:",
+  chargNo:"Nein",
+  chargYes:"Ja (11 kW)",
+  calcBtn:"Set berechnen",
+  orderBtn:"Dieses Set bestellen",
 
-  rPV: "🔆 PV-Anlage",
-  rBAT: "🔋 Energiespeicher",
-  rEV: "🚗 EV-Ladegerät",
-  rYes: "Ja",
-  rNo: "Nein",
-  rCost: "💰 Geschätzte Setkosten",
+  rPV:"🔆 PV-Anlage",
+  rBAT:"🔋 Energiespeicher",
+  rEV:"🚗 EV-Ladegerät",
+  rYes:"Ja",
+  rNo:"Nein",
+  rCost:"💰 Geschätzte Setkosten",
 
-  textareaAdd: "Weitere Informationen: "
+  textareaAdd:"Weitere Informationen: ",
+  submit:"Anfrage senden",
+  namePH:"Ihr Name",
+  emailPH:"Ihre E-Mail"
 };
 
 const textEN = {
-  heroTitle: "SunPort-JW-SOL",
-  heroSubtitle: "Metal Garages with Off-Grid PV System",
-  heroDesc: "Energy straight from your garage roof — independence at its best",
-  ofertaTitle: "Our Offer",
-  ofertaDesc: "We offer sturdy garages integrated with complete off-grid PV systems. We cooperate with Hortogarage – official SunPort-JW-SOL partner.",
-  zamowTitle: "Order Garage with PV System",
-  kreatorTitle: "Off-Grid Set Builder",
-  calcDesc: "Configure your own set: choose PV system power, battery capacity, and optionally an EV charger.",
+  heroTitle:"SunPort-JW-SOL",
+  heroSubtitle:"Metal Garages with Off-Grid PV System",
+  heroDesc:"Energy straight from your garage roof — independence at its best",
+  ofertaTitle:"Our Offer",
+  ofertaDesc:"We offer sturdy garages integrated with complete off-grid PV systems. We cooperate with Hortogarage – official SunPort-JW-SOL partner.",
+  zamowTitle:"Order Garage with PV System",
+  kreatorTitle:"Off-Grid Set Builder",
+  calcDesc:"Configure your own set: choose PV system power, battery capacity, and optionally an EV charger.",
 
-  // konfigurator
-  pvLabel: "PV system power (kW):",
-  batLabel: "Battery capacity (kWh):",
-  chargLabel: "EV charger:",
-  chargNo: "No",
-  chargYes: "Yes (11 kW)",
-  calcBtn: "Generate set",
-  orderBtn: "Order this set",
+  pvLabel:"PV system power (kW):",
+  batLabel:"Battery capacity (kWh):",
+  chargLabel:"EV charger:",
+  chargNo:"No",
+  chargYes:"Yes (11 kW)",
+  calcBtn:"Generate set",
+  orderBtn:"Order this set",
 
-  rPV: "🔆 PV installation",
-  rBAT: "🔋 Energy storage",
-  rEV: "🚗 EV charger",
-  rYes: "Yes",
-  rNo: "No",
-  rCost: "💰 Estimated set cost",
+  rPV:"🔆 PV installation",
+  rBAT:"🔋 Energy storage",
+  rEV:"🚗 EV charger",
+  rYes:"Yes",
+  rNo:"No",
+  rCost:"💰 Estimated set cost",
 
-  textareaAdd: "Additional information: "
+  textareaAdd:"Additional information: ",
+  submit:"Send request",
+  namePH:"Your full name",
+  emailPH:"Your email"
 };
 
 let currentLang = "pl";
 
-function setLang(lang) {
-  currentLang = lang;
-  const t = lang === "de" ? textDE : (lang === "en" ? textEN : textPL);
 
-  // hero
-  document.querySelector(".hero h1").textContent = t.heroTitle;
-  document.querySelector(".hero h2").textContent = t.heroSubtitle;
-  document.querySelector(".hero p").textContent = t.heroDesc;
+function setLang(lang){
+  currentLang=lang;
+  const t = lang==="de"?textDE:(lang==="en"?textEN:textPL);
 
-  // oferta
-  document.querySelector("#oferta h2").textContent = t.ofertaTitle;
-  document.querySelector("#oferta p").textContent = t.ofertaDesc;
+  document.querySelector(".hero h1").textContent=t.heroTitle;
+  document.querySelector(".hero h2").textContent=t.heroSubtitle;
+  document.querySelector(".hero p").textContent=t.heroDesc;
 
-  // zamówienia
-  document.querySelector("#zamow h2").textContent = t.zamowTitle;
+  document.querySelector("#oferta h2").textContent=t.ofertaTitle;
+  document.querySelector("#oferta p").textContent=t.ofertaDesc;
 
-  // kreator
-  document.querySelector("#kreator h2").textContent = t.kreatorTitle;
-  document.querySelector("#kreator p").textContent = t.calcDesc;
+  document.querySelector("#zamow h2").textContent=t.zamowTitle;
 
-  // etykiety konfiguratora
-  document.querySelector('label[for="pv"]')?.remove();
-  document.querySelectorAll("#kreator label")[0].textContent = t.pvLabel;
-  document.querySelectorAll("#kreator label")[1].textContent = t.batLabel;
-  document.querySelectorAll("#kreator label")[2].textContent = t.chargLabel;
+  document.querySelector("#kreator h2").textContent=t.kreatorTitle;
+  document.querySelector("#kreator p").textContent=t.calcDesc;
 
-  // opcje
-  document.querySelector("#ladowarka option[value='0']").textContent = t.chargNo;
-  document.querySelector("#ladowarka option[value='1']").textContent = t.chargYes;
+  document.querySelectorAll("#kreator label")[0].textContent=t.pvLabel;
+  document.querySelectorAll("#kreator label")[1].textContent=t.batLabel;
+  document.querySelectorAll("#kreator label")[2].textContent=t.chargLabel;
 
-  // przyciski
-  document.querySelector(".calc button").textContent = t.calcBtn;
-  document.querySelector("#zamowZestaw").textContent = t.orderBtn;
+  document.querySelector("#ladowarka option[value='0']").textContent=t.chargNo;
+  document.querySelector("#ladowarka option[value='1']").textContent=t.chargYes;
 
-  // textarea placeholder
-  document.querySelector("#wiadomosc").placeholder = t.textareaAdd;
+  document.querySelector("#btnCalc").textContent=t.calcBtn;
+  document.querySelector("#zamowZestaw").textContent=t.orderBtn;
+
+  document.querySelector("#wiadomosc").placeholder=t.textareaAdd;
+  document.querySelector("#submitBtn").textContent=t.submit;
+  document.querySelector("#nameField").placeholder=t.namePH;
+  document.querySelector("#emailField").placeholder=t.emailPH;
 }
 
 
-// --- tłumaczenie wyniku konfiguratora ---
-function stworzZestaw() {
+function stworzZestaw(){
   const pv = parseFloat(document.getElementById("pv").value);
   const bat = parseFloat(document.getElementById("bateria").value);
   const lad = parseInt(document.getElementById("ladowarka").value);
 
-  const t = currentLang === "de" ? textDE : (currentLang === "en" ? textEN : textPL);
+  const t=currentLang==="de"?textDE:(currentLang==="en"?textEN:textPL);
 
-  const cenaPV = 1200;
-  const cenaBat = 500;
-  const cenaLad = 1000;
+  const cenaPV=1200;
+  const cenaBat=500;
+  const cenaLad=1000;
 
-  const koszt = pv * cenaPV + bat * cenaBat + (lad ? cenaLad : 0);
+  const koszt = pv*cenaPV + bat*cenaBat + (lad?cenaLad:0);
 
   const opis =
 `${t.rPV}: ${pv} kW (${(pv*cenaPV).toLocaleString()} €)
 ${t.rBAT}: ${bat} kWh (${(bat*cenaBat).toLocaleString()} €)
-${t.rEV}: ${lad ? t.rYes + " (" + cenaLad.toLocaleString() + " €)" : t.rNo}
+${t.rEV}: ${lad?t.rYes+" ("+cenaLad.toLocaleString()+" €)":t.rNo}
 ${t.rCost}: ${koszt.toLocaleString()} €`;
 
-  const wynik = document.getElementById("wynikZestawu");
-  wynik.style.display = "block";
-  wynik.innerHTML = opis.replace(/\n/g, "<br>");
-  wynik.dataset.opis = opis;
+  const wynik=document.getElementById("wynikZestawu");
+  wynik.style.display="block";
+  wynik.innerHTML=opis.replace(/\n/g,"<br>");
+  wynik.dataset.opis=opis;
 
-  document.getElementById("zamowZestaw").style.display = "inline-block";
+  document.getElementById("zamowZestaw").style.display="inline-block";
 }
 
-function przeniesDoForm() {
-  const t = currentLang === "de" ? textDE : (currentLang === "en" ? textEN : textPL);
-  const opis = document.getElementById("wynikZestawu").dataset.opis;
-  const textarea = document.getElementById("wiadomosc");
-  textarea.value = opis + "\n\n" + t.textareaAdd;
-  window.location.hash = "#zamow";
+
+function przeniesDoForm(){
+  const t=currentLang==="de"?textDE:(currentLang==="en"?textEN:textPL);
+  const opis=document.getElementById("wynikZestawu").dataset.opis;
+  const textarea=document.getElementById("wiadomosc");
+
+  textarea.value = opis+"\n\n"+t.textareaAdd;
+  window.location.hash="#zamow";
   textarea.focus();
 }
 </script>
+
+
+<div id="lang-switcher" style="position:fixed; top:10px; right:10px; z-index:1000;">
+  <button onclick="setLang('pl')">🇵🇱 PL</button>
+  <button onclick="setLang('de')">🇩🇪 DE</button>
+  <button onclick="setLang('en')">🇬🇧 EN</button>
+</div>
+
+</body>
+</html>
