@@ -489,9 +489,9 @@ ${t.rCost}: ${koszt.toLocaleString()} ${waluta}`;
   wynik.dataset.opis = opis;
 
   document.getElementById("zamowZestaw").style.display = "inline-block";
-  if(showPopup) pokazPopup();
-
-
+   if (showPopup) {
+    pokazPopup();
+  }
 }
   function pokazPopup() {
   const popup = document.getElementById("contactPopup");
