@@ -503,6 +503,19 @@ function setLang(lang){
   document.querySelector("#btnCalc").textContent=t.calcBtn;
   document.querySelector("#zamowZestaw").textContent=t.orderBtn;
 
+  // Tłumaczenie modelu garażu i pola custom
+document.querySelector("#zamow label[for='modelSelect']").textContent = t.modelLabel;
+
+// Opcje select z modelami garażu
+const modelSelect = document.getElementById("modelSelect");
+t.modelOptions.forEach((text, i) => {
+  if(modelSelect.options[i]) modelSelect.options[i].textContent = text;
+});
+
+// Label pola własnych wymiarów
+document.querySelector("#customDimensionsWrapper label").textContent = t.customLabel;
+
+
   const popup = document.getElementById("contactPopup");
   if(popup) {
     popup.querySelector("h3").textContent = t.popupTitle || "Otrzymaj ofertę specjalną!";
@@ -523,17 +536,6 @@ function setLang(lang){
   
   const bateriaSelect = document.getElementById("bateria");
 bateriaSelect.options[0].textContent = t.noBattery;
-
-  document.querySelector("#zamow label[for='modelSelect']").textContent = t.modelLabel;
-const modelSelect = document.getElementById("modelSelect");
-t.modelOptions.forEach((text, i) => {
-  if(modelSelect.options[i]) modelSelect.options[i].textContent = text;
-});
-
-document.querySelector("#customDimensionsWrapper label").textContent = t.customLabel;
-
-
-
 
 
 }
