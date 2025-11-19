@@ -528,7 +528,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const ladSelect = document.getElementById("ladowarka");
 
   [pvSelect, batSelect, ladSelect].forEach(el => {
-    el.addEventListener("change", stworzZestaw);
+    el.addEventListener("change", stworzZestaw(false)); 
   });
 });
 
