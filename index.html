@@ -439,12 +439,14 @@ function stworzZestaw(){
   // --- WALUTA WG JĘZYKA ---
   const waluta = currentLang === "pl" ? "zł" : "€";
 
-  // CENNIK (NIE ZMIENIAMY, TYLKO WALUTA SIĘ PODMIEŃ)
-  const cenaPV = currentLang === "pl" ? 5200 : 1200; // przykład: inne ceny w PLN
+  // --- CENNIK ---
+  const bazaPV = 5; // bazowa moc dla ceny PV
+  const cenaPV = currentLang === "pl" ? 5200 : 1200;
   const cenaBat = currentLang === "pl" ? 2300 : 500;
   const cenaLad = currentLang === "pl" ? 4200 : 1000;
 
-  const kosztPV = pv * cenaPV;
+  // --- LICZENIE PROPORCJONALNE ---
+  const kosztPV = pv * (cenaPV / bazaPV);
   const kosztBat = bat * cenaBat;
   const kosztLad = lad ? cenaLad : 0;
   const koszt = kosztPV + kosztBat + kosztLad;
