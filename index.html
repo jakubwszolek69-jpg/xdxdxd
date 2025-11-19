@@ -436,17 +436,14 @@ function stworzZestaw(){
 
   const t = currentLang === "de" ? textDE : (currentLang === "en" ? textEN : textPL);
 
-  // --- WALUTA WG JĘZYKA ---
   const waluta = currentLang === "pl" ? "zł" : "€";
 
-  // --- CENNIK ---
-  const bazaPV = 5; // bazowa moc dla ceny PV
-  const cenaPV = currentLang === "pl" ? 5200 : 1200;
-  const cenaBat = currentLang === "pl" ? 2300 : 500;
-  const cenaLad = currentLang === "pl" ? 4200 : 1000;
+  // Cena za 1 kW / 1 kWh
+  const cenaPVperKW = currentLang === "pl" ? 1040 : 240; // np 1040 zł za 1kW
+  const cenaBat = currentLang === "pl" ? 230 : 50;       // np 230 zł za 1 kWh
+  const cenaLad = currentLang === "pl" ? 4200 : 1000;    // ładowarka stała
 
-  // --- LICZENIE PROPORCJONALNE ---
-  const kosztPV = pv * (cenaPV / bazaPV);
+  const kosztPV = pv * cenaPVperKW;
   const kosztBat = bat * cenaBat;
   const kosztLad = lad ? cenaLad : 0;
   const koszt = kosztPV + kosztBat + kosztLad;
@@ -463,6 +460,7 @@ ${t.rCost}: ${koszt.toLocaleString()} ${waluta}`;
   wynik.dataset.opis = opis;
 
   document.getElementById("zamowZestaw").style.display = "inline-block";
+
 }
 
 
