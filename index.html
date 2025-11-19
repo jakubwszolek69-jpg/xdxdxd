@@ -301,6 +301,7 @@ const textPL = {
   rYes:"Tak",
   rNo:"Nie",
   rCost:"💰 Szacunkowy koszt zestawu",
+  noBattery: "Brak magazynu",
 
   textareaAdd:"Dodatkowe informacje: ",
   submit:"Wyślij zapytanie",
@@ -338,6 +339,7 @@ const textDE = {
   rYes:"Ja",
   rNo:"Nein",
   rCost:"💰 Geschätzte Setkosten",
+  noBattery: "Keine Batterie",
 
   textareaAdd:"Weitere Informationen: ",
   submit:"Anfrage senden",
@@ -375,6 +377,7 @@ const textEN = {
   rYes:"Yes",
   rNo:"No",
   rCost:"💰 Estimated set cost",
+  noBattery: "No battery",
 
   textareaAdd:"Additional information: ",
   submit:"Send request",
@@ -427,6 +430,7 @@ function setLang(lang){
   document.getElementById("partnersDesc").textContent = t.partnersDesc;
 
 
+
 }
 
 
@@ -451,7 +455,7 @@ function stworzZestaw(){
 
   const opis =
 `${t.rPV}: ${pv} kW (${kosztPV.toLocaleString()} ${waluta})
-${t.rBAT}: ${bat > 0 ? bat + " kWh ("+kosztBat.toLocaleString()+" "+waluta+")" : "Brak magazynu"}
+${t.rBAT}: ${bat > 0 ? bat + " kWh ("+kosztBat.toLocaleString()+" "+waluta+")" : t.noBattery}
 ${t.rEV}: ${lad ? t.rYes+" ("+cenaLad.toLocaleString()+" "+waluta+")" : t.rNo}
 ${t.rCost}: ${koszt.toLocaleString()} ${waluta}`;
 
