@@ -482,8 +482,24 @@ function przeniesDoForm(){
 </div>
 <script>
 document.addEventListener("DOMContentLoaded", () => {
-    setLang('pl'); // domyślny język po załadowaniu strony
+    // Domyślny język
+    let defaultLang = 'en';
+
+    // Pobranie języka przeglądarki, np. "de-DE" lub "pl-PL"
+    const userLang = (navigator.language || navigator.userLanguage).toLowerCase();
+
+    // Ustalanie języka na podstawie kraju/języka przeglądarki
+    if(userLang.startsWith('de')) {
+        defaultLang = 'de'; // Niemcy, Austria, Szwajcaria i inne niemieckojęzyczne
+    } else if(userLang.startsWith('pl')) {
+        defaultLang = 'pl'; // Polska
+    } else {
+        defaultLang = 'en'; // Pozostałe
+    }
+
+    setLang(defaultLang); // Ustawienie języka automatycznie
 });
+
 </script>
 
 </body>
