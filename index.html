@@ -627,5 +627,22 @@ document.addEventListener("DOMContentLoaded", () => {
   <span id="popupClose" style="position:absolute; top:5px; right:10px; cursor:pointer; font-weight:bold;">✖</span>
 </div>
 
+  <script>
+document.addEventListener("DOMContentLoaded", function() {
+  const modelSelect = document.getElementById("modelSelect");
+  const customWrapper = document.getElementById("customDimensionsWrapper");
+
+  modelSelect.addEventListener("change", function() {
+    if (this.value === "custom") {
+      customWrapper.style.display = "block";
+    } else {
+      customWrapper.style.display = "none";
+      document.getElementById("customDimensions").value = "";
+    }
+  });
+});
+</script>
+
+
 </body>
 </html>
