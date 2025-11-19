@@ -448,9 +448,9 @@ function stworzZestaw(){
   const waluta = currentLang === "pl" ? "zł" : "€";
 
   // Cena za 1 kW / 1 kWh
-  const cenaPVperKW = currentLang === "pl" ? 1040 : 240; // np 1040 zł za 1kW
-  const cenaBat = currentLang === "pl" ? 230 : 50;       // np 230 zł za 1 kWh
-  const cenaLad = currentLang === "pl" ? 4200 : 1000;    // ładowarka stała
+  const cenaPVperKW = currentLang === "pl" ? 2500 : 1500; // np 1040 zł za 1kW
+  const cenaBat = currentLang === "pl" ? 750 : 500;       // np 230 zł za 1 kWh
+  const cenaLad = currentLang === "pl" ? 4000 : 1000;    // ładowarka stała
 
   const kosztPV = pv * cenaPVperKW;
   const kosztBat = bat * cenaBat;
