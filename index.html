@@ -208,6 +208,7 @@
 
       <label for="pv">Moc instalacji PV (kW):</label>
       <select id="pv">
+        <option value="0">0 kWh (bez magazynu)</option>
         <option value="3">3 kW</option>
         <option value="5" selected>5 kW</option>
         <option value="8">8 kW</option>
@@ -450,7 +451,7 @@ function stworzZestaw(){
 
   const opis =
 `${t.rPV}: ${pv} kW (${kosztPV.toLocaleString()} ${waluta})
-${t.rBAT}: ${bat} kWh (${kosztBat.toLocaleString()} ${waluta})
+${t.rBAT}: ${bat > 0 ? bat + " kWh ("+kosztBat.toLocaleString()+" "+waluta+")" : "Brak magazynu"}
 ${t.rEV}: ${lad ? t.rYes+" ("+cenaLad.toLocaleString()+" "+waluta+")" : t.rNo}
 ${t.rCost}: ${koszt.toLocaleString()} ${waluta}`;
 
