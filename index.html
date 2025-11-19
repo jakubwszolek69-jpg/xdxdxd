@@ -509,6 +509,16 @@ ${t.rCost}: ${koszt.toLocaleString()} ${waluta}`;
     popup.style.display = "none";
     }
  }
+// --- AUTOMATYCZNE PRZELICZANIE ---
+document.addEventListener("DOMContentLoaded", () => {
+  const pvSelect = document.getElementById("pv");
+  const batSelect = document.getElementById("bateria");
+  const ladSelect = document.getElementById("ladowarka");
+
+  [pvSelect, batSelect, ladSelect].forEach(el => {
+    el.addEventListener("change", stworzZestaw);
+  });
+});
 
 
 function przeniesDoForm(){
