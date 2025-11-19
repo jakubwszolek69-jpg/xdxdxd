@@ -244,7 +244,7 @@
 
     <form action="https://formspree.io/f/mqawanro" method="POST">
       <label>Model garażu:</label>
-     <label for="modelSelect">Model garażu:</label>
+    <select id="modelSelect" name="model">...</select>
         <option>Standard 3x5 m (2 kW)</option>
         <option>Premium 4x6 m (4 kW)</option>
         <option>Double 6x6 m (5 kW)</option>
@@ -502,18 +502,6 @@ function setLang(lang){
 
   document.querySelector("#btnCalc").textContent=t.calcBtn;
   document.querySelector("#zamowZestaw").textContent=t.orderBtn;
-
-  // Tłumaczenie modelu garażu i pola custom
-document.querySelector("#zamow label[for='modelSelect']").textContent = t.modelLabel;
-
-// Opcje select z modelami garażu
-const modelSelect = document.getElementById("modelSelect");
-t.modelOptions.forEach((text, i) => {
-  if(modelSelect.options[i]) modelSelect.options[i].textContent = text;
-});
-
-// Label pola własnych wymiarów
-document.querySelector("#customDimensionsWrapper label").textContent = t.customLabel;
 
 
   const popup = document.getElementById("contactPopup");
