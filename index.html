@@ -311,6 +311,10 @@ const textPL = {
   partnersTitle: "Nasi Partnerzy",
   partnersDesc: "Współpracujemy z najlepszymi w branży",
 
+  popupTitle: "Otrzymaj ofertę specjalną!",
+  popupDesc: "Wyślij nam swój zestaw i otrzymaj indywidualną ofertę cenową.",
+  popupBtn: "Przejdź do formularza",
+
 
 };
 
@@ -348,6 +352,10 @@ const textDE = {
 
   partnersTitle: "Unsere Partner",
   partnersDesc: "Wir arbeiten mit den Besten der Branche zusammen",
+
+  popupTitle: "Erhalten Sie ein spezielles Angebot!",
+  popupDesc: "Senden Sie uns Ihr Set und erhalten Sie ein individuelles Preisangebot.",
+  popupBtn: "Zum Formular",
 
 
 };
@@ -387,6 +395,10 @@ const textEN = {
   partnersTitle: "Our Partners",
   partnersDesc: "We cooperate with the best in the industry",
 
+  popupTitle: "Get a Special Offer!",
+  popupDesc: "Send us your set and receive an individual price offer.",
+  popupBtn: "Go to Form",
+
 
 };
 
@@ -418,6 +430,14 @@ function setLang(lang){
 
   document.querySelector("#btnCalc").textContent=t.calcBtn;
   document.querySelector("#zamowZestaw").textContent=t.orderBtn;
+
+  const popup = document.getElementById("contactPopup");
+  if(popup) {
+    popup.querySelector("h3").textContent = t.popupTitle || "Otrzymaj ofertę specjalną!";
+    popup.querySelector("p").textContent = t.popupDesc || "Wyślij nam swój zestaw i otrzymaj indywidualną ofertę cenową.";
+    popup.querySelector("#popupBtn").textContent = t.popupBtn || "Przejdź do formularza";
+  }
+
 
   document.querySelector("#wiadomosc").placeholder=t.textareaAdd;
   document.querySelector("#submitBtn").textContent=t.submit;
