@@ -231,7 +231,7 @@
         <option value="1">Tak (11 kW)</option>
       </select>
 
-      <button type="button" id="btnCalc" onclick="stworzZestaw()">Oblicz zestaw</button>
+      <button type="button" id="btnCalc" onclick="stworzZestaw(true)">Oblicz zestaw</button>
 
       <div id="wynikZestawu" class="calc-result" style="display:none;"></div>
 
@@ -458,7 +458,7 @@ bateriaSelect.options[0].textContent = t.noBattery;
 }
 
 
-function stworzZestaw(){
+function stworzZestaw(showPopup = false){
   const pv = parseFloat(document.getElementById("pv").value);
   const bat = parseFloat(document.getElementById("bateria").value);
   const lad = parseInt(document.getElementById("ladowarka").value);
@@ -489,7 +489,7 @@ ${t.rCost}: ${koszt.toLocaleString()} ${waluta}`;
   wynik.dataset.opis = opis;
 
   document.getElementById("zamowZestaw").style.display = "inline-block";
-  pokazPopup();
+  if(showPopup) pokazPopup();
 
 
 }
@@ -503,6 +503,18 @@ ${t.rCost}: ${koszt.toLocaleString()} ${waluta}`;
     popup.style.display = "none";
     document.getElementById("wiadomosc").focus();
   }
+    // Nasłuchiwanie zmian w polach formularza
+document.addEventListener("DOMContentLoaded", () => {
+  const fields = ["pv", "bateria", "ladowarka"];
+  
+  fields.forEach(id => {
+    const el = document.getElementById(id);
+    el.addEventListener("change", () => {
+      stworzZestaw(false); // false = nie pokazuj popup przy automatycznym przeliczaniu
+    });
+  });
+});
+
 
   // Przycisk zamknięcia
   document.getElementById("popupClose").onclick = function() {
