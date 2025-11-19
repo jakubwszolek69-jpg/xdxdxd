@@ -469,9 +469,25 @@ ${t.rCost}: ${koszt.toLocaleString()} ${waluta}`;
   wynik.dataset.opis = opis;
 
   document.getElementById("zamowZestaw").style.display = "inline-block";
+  pokazPopup();
+
 
 }
+  function pokazPopup() {
+  const popup = document.getElementById("contactPopup");
+  popup.style.display = "block";
 
+  // Przycisk do formularza
+  document.getElementById("popupBtn").onclick = function() {
+    window.location.hash = "#zamow"; // przenosi do sekcji zamów
+    popup.style.display = "none";
+    document.getElementById("wiadomosc").focus();
+  }
+
+  // Przycisk zamknięcia
+  document.getElementById("popupClose").onclick = function() {
+    popup.style.display = "none";
+  }
 
 
 function przeniesDoForm(){
@@ -510,6 +526,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
     setLang(defaultLang); // Ustawienie języka automatycznie
 });
+
+  <div id="contactPopup" style="display:none; position:fixed; top:50%; left:50%; transform:translate(-50%,-50%);
+     background:white; padding:30px; border-radius:10px; box-shadow:0 5px 20px rgba(0,0,0,0.3); z-index:9999; max-width:400px; text-align:center;">
+  <h3>Otrzymaj ofertę specjalną!</h3>
+  <p>Wyślij nam swój zestaw i otrzymaj indywidualną ofertę cenową.</p>
+  <button id="popupBtn" style="padding:10px 20px; margin-top:15px; cursor:pointer;">Przejdź do formularza</button>
+  <span id="popupClose" style="position:absolute; top:5px; right:10px; cursor:pointer; font-weight:bold;">✖</span>
+</div>
 
 </script>
 
