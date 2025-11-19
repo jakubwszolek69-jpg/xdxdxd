@@ -363,6 +363,14 @@ const textPL = {
   popupDesc: "Wyślij nam swój zestaw i otrzymaj indywidualną ofertę cenową.",
   popupBtn: "Przejdź do formularza",
 
+  modelLabel: "Model garażu:",
+customLabel: "Wprowadź wymiary (szer. x dł. x wys.) w metrach:",
+modelOptions: [
+  "Standard 3x5 m (2 kW)",
+  "Premium 4x6 m (4 kW)",
+  "Double 6x6 m (5 kW)",
+  "Własne wymiary",
+
 
 };
 
@@ -405,6 +413,14 @@ const textDE = {
   popupDesc: "Senden Sie uns Ihr Set und erhalten Sie ein individuelles Preisangebot.",
   popupBtn: "Zum Formular",
 
+  modelLabel: "Garagenmodell:",
+customLabel: "Geben Sie die Abmessungen ein (Breite x Länge x Höhe) in Metern:",
+modelOptions: [
+  "Standard 3x5 m (2 kW)",
+  "Premium 4x6 m (4 kW)",
+  "Double 6x6 m (5 kW)",
+  "Eigene Maße",
+
 
 };
 
@@ -446,6 +462,14 @@ const textEN = {
   popupTitle: "Get a Special Offer!",
   popupDesc: "Send us your set and receive an individual price offer.",
   popupBtn: "Go to Form",
+
+  modelLabel: "Garage model:",
+customLabel: "Enter dimensions (W x L x H) in meters:",
+modelOptions: [
+  "Standard 3x5 m (2 kW)",
+  "Premium 4x6 m (4 kW)",
+  "Double 6x6 m (5 kW)",
+  "Custom dimensions",
 
 
 };
@@ -499,6 +523,15 @@ function setLang(lang){
   
   const bateriaSelect = document.getElementById("bateria");
 bateriaSelect.options[0].textContent = t.noBattery;
+
+  document.querySelector("#zamow label[for='modelSelect']").textContent = t.modelLabel;
+const modelSelect = document.getElementById("modelSelect");
+t.modelOptions.forEach((text, i) => {
+  if(modelSelect.options[i]) modelSelect.options[i].textContent = text;
+});
+
+document.querySelector("#customDimensionsWrapper label").textContent = t.customLabel;
+
 
 
 
