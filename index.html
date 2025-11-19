@@ -248,38 +248,49 @@
         <option>Standard 3x5 m (2 kW)</option>
         <option>Premium 4x6 m (4 kW)</option>
         <option>Double 6x6 m (5 kW)</option>
+        <option value="custom">Własne wymiary</option>
       </select>
 
-       <!-- NOWE POLE DLA WŁASNYCH WYMIARÓW -->
-    <label for="customDimensions">Własne wymiary garażu (szer. x dł. x wys. w metrach):</label>
-    <input type="text" id="customDimensions" name="customDimensions" placeholder="np. 4x10x2.5">
-
-    <input type="text" name="name" id="nameField" placeholder="Twoje imię i nazwisko" required>
-    <input type="email" name="email" id="emailField" placeholder="Twój e-mail" required>
-    <textarea id="wiadomosc" name="message" rows="5" placeholder="Dodatkowe informacje..."></textarea>
-
-    <button type="submit" id="submitBtn">Wyślij zapytanie</button>
-  </form>
-</section>
+      <!-- Pole dla własnych wymiarów (ukryte domyślnie) -->
+<div id="customDimensionsWrapper" style="display:none; margin-top:10px;">
+  <label for="customDimensions">Wprowadź wymiary (szer. x dł. x wys.) w metrach:</label>
+  <input type="text" id="customDimensions" name="customDimensions" placeholder="np. 4x10x2.5">
+</div>
 
 <script>
-// WALIDACJA WŁASNYCH WYMIARÓW
-document.getElementById("submitBtn").addEventListener("click", function(e) {
-  const dimensions = document.getElementById("customDimensions").value.trim();
-  if(dimensions && !/^\d+(\.\d+)?x\d+(\.\d+)?x\d+(\.\d+)?$/.test(dimensions)) {
-    alert("Wprowadź wymiary w formacie szer. x dł. x wys., np. 4x10x2.5");
-    e.preventDefault(); // blokuje wysłanie formularza
+// Pokaż/ukryj pole wymiarów w zależności od wyboru w liście
+document.getElementById("modelSelect").addEventListener("change", function() {
+  const customWrapper = document.getElementById("customDimensionsWrapper");
+  if (this.value === "custom") {
+    customWrapper.style.display = "block";
+  } else {
+    customWrapper.style.display = "none";
+    document.getElementById("customDimensions").value = ""; // wyczyść pole
   }
 });
 
-// DODANIE WYMIARÓW DO WIADOMOŚCI Z KONFIGURATORA
+// Walidacja przy wysyłaniu formularza
+document.getElementById("submitBtn").addEventListener("click", function(e) {
+  const model = document.getElementById("modelSelect").value;
+  const dimensions = document.getElementById("customDimensions").value.trim();
+
+  if(model === "custom") {
+    if(!/^\d+(\.\d+)?x\d+(\.\d+)?x\d+(\.\d+)?$/.test(dimensions)) {
+      alert("Wprowadź wymiary w formacie szer. x dł. x wys., np. 4x10x2.5");
+      e.preventDefault(); // blokuje wysłanie formularza
+    }
+  }
+});
+
+// Dodawanie wymiarów custom do wiadomości
 function przeniesDoForm() {
   const t = currentLang==="de"?textDE:(currentLang==="en"?textEN:textPL);
   const opis = document.getElementById("wynikZestawu").dataset.opis;
   const textarea = document.getElementById("wiadomosc");
 
+  const model = document.getElementById("modelSelect").value;
   const customDims = document.getElementById("customDimensions").value.trim();
-  const dimsText = customDims ? `\nWłasne wymiary garażu: ${customDims}` : "";
+  const dimsText = (model === "custom" && customDims) ? `\nWłasne wymiary garażu: ${customDims}` : "";
 
   textarea.value = opis + dimsText + "\n\n" + t.textareaAdd;
   window.location.hash="#zamow";
