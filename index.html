@@ -505,6 +505,15 @@ function setLang(lang){
   document.querySelector("#btnCalc").textContent=t.calcBtn;
   document.querySelector("#zamowZestaw").textContent=t.orderBtn;
 
+  // 1. Label dla custom dimensions
+document.querySelector("#customDimensionsWrapper label").textContent = t.customLabel;
+
+// 2. Opcje modelu garażu
+const modelSelect = document.getElementById("modelSelect");
+t.modelOptions.forEach((text, i) => {
+  if(modelSelect.options[i]) modelSelect.options[i].textContent = text;
+
+
 
   const popup = document.getElementById("contactPopup");
   if(popup) {
