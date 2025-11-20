@@ -520,6 +520,8 @@ function setLang(lang){
 
   document.querySelector("#customDimensionsWrapper label").textContent = t.customLabel;
 
+  document.getElementById("modelLabel").textContent = t.modelLabel;
+
   const modelSelect = document.getElementById("modelSelect");
   t.modelOptions.forEach((text, i) => {
     if (modelSelect.options[i]) modelSelect.options[i].textContent = text;
