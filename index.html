@@ -505,16 +505,6 @@ function setLang(lang){
   document.querySelector("#btnCalc").textContent=t.calcBtn;
   document.querySelector("#zamowZestaw").textContent=t.orderBtn;
 
-  // 1. Label dla custom dimensions
-document.querySelector("#customDimensionsWrapper label").textContent = t.customLabel;
-
-// 2. Opcje modelu garażu
-const modelSelect = document.getElementById("modelSelect");
-t.modelOptions.forEach((text, i) => {
-  if(modelSelect.options[i]) modelSelect.options[i].textContent = text;
-
-
-
   const popup = document.getElementById("contactPopup");
   if(popup) {
     popup.querySelector("h3").textContent = t.popupTitle || "Otrzymaj ofertę specjalną!";
@@ -528,6 +518,13 @@ t.modelOptions.forEach((text, i) => {
   document.querySelector("#nameField").placeholder=t.namePH;
   document.querySelector("#emailField").placeholder=t.emailPH;
 
+  document.querySelector("#customDimensionsWrapper label").textContent = t.customLabel;
+
+  const modelSelect = document.getElementById("modelSelect");
+  t.modelOptions.forEach((text, i) => {
+    if (modelSelect.options[i]) modelSelect.options[i].textContent = text;
+  });
+  
   document.getElementById("btnOffer").textContent = t.btnOfferText;
 
   document.getElementById("partnersTitle").textContent = t.partnersTitle;
