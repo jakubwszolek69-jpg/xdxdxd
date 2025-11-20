@@ -616,6 +616,10 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+// Odśwież wynik jeśli jest widoczny
+if(document.getElementById("wynikZestawu").style.display === "block") {
+    stworzZestaw(false);
+}
 
 function przeniesDoForm(){
   const t=currentLang==="de"?textDE:(currentLang==="en"?textEN:textPL);
